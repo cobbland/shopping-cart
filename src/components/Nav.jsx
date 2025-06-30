@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import SmallCart from "./SmallCart";
 
 export default function Nav() {
     return (
@@ -11,9 +12,7 @@ export default function Nav() {
                     <Link to="shop">Shop</Link>
                 </li>
             </ul>
-            <div>
-                <img src="/src/assets/cart.png" alt="A shopping cart." title="Cart" />
-            </div>
+            <SmallCart />
         </div>
     )
 }
