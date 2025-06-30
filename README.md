@@ -15,3 +15,7 @@ Components (except for `main and App`) go in `/src/components/`. Styles live in 
         - Shop
             - Card
             - Cart
+
+## Todo
+
+- [x] route handling (see the [React Router](https://www.theodinproject.com/lessons/node-path-react-new-react-router) lesson)

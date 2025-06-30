@@ -1,18 +1,18 @@
+import { Link } from "react-router-dom";
+
 export default function Nav() {
     return (
         <div>
             <ul>
                 <li>
-                    <a href="Home">Home</a>
+                    <Link to="home">Home</Link>
                 </li>
                 <li>
-                    <a href="Shop">Shop</a>
+                    <Link to="shop">Shop</Link>
                 </li>
             </ul>
             <div>
-                <a href="Cart">
-                    <img src="/src/assets/cart.png" alt="" />
-                </a>
+                <img src="/src/assets/cart.png" alt="A shopping cart." title="Cart" />
             </div>
         </div>
     )
