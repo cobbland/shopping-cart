@@ -23,11 +23,35 @@ export default function App() {
     }
     setNumber(newNum);
     setTotal(newTotal.toFixed(2));
+    newCart = newCart.filter((obj) => obj.count > 0);
+    setCart(newCart);
+  }
+
+  function handleIncrementCount(num, id) {
+    let newCart = [...cart];
+    const item = newCart.find(obj => obj.key === id);
+    let newNum = 0;
+    let newTotal = 0;
+    if (item.count + num < 0) {
+      item.count = 0;
+    } else if (item.count + num > 99) {
+      item.count = 99;
+    } else {
+      item.count = item.count + num;
+    }
+    for (const obj of newCart) {
+      newNum += obj.count;
+      newTotal += obj.price * obj.count;
+    }
+    setNumber(newNum);
+    setTotal(newTotal.toFixed(2));
+    newCart = newCart.filter((obj) => obj.count > 0);
     setCart(newCart);
   }
 
   const sharedData = {
     onAddItem: handleAddItem,
+    incrementCount: handleIncrementCount,
     cartContents: cart,
     cartTotal: total,
   }
