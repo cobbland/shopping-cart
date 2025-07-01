@@ -9,6 +9,8 @@ export default function Card(props) {
         const newCount = count + num;
         if (newCount < 0) {
             setCount(0);
+        } else if (newCount > 99) {
+            setCount(99);
         } else {
             setCount(newCount);
         }
@@ -45,9 +47,9 @@ export default function Card(props) {
             <img src={props.image} alt="" />
             <p>{props.description}</p>
             <p>${props.price}</p>
+            <button onClick={() => handleIncrementCount(-1)}>-</button>
             <input type="number" value={count} min="0" onChange={(e) => handleSetCount(e.target.value)} />
             <button onClick={() => handleIncrementCount(1)}>+</button>
-            <button onClick={() => handleIncrementCount(-1)}>-</button>
             <button onClick={() => onAddItem(props.title, props.price, props.propKey, count)} >Add to cart</button>
         </div>
     )
