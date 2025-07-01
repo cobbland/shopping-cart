@@ -11,10 +11,12 @@ export default function Nav(props) {
                 <li>
                     <Link to="shop">Shop</Link>
                 </li>
+                <li>
+                    <Link to="cart">
+                        <SmallCart number={props.number} />
+                    </Link>
+                </li>
             </ul>
-            <Link to="cart">
-                <SmallCart number={props.number} />
-            </Link>
         </div>
     )
 }
