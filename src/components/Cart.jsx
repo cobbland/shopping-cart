@@ -6,6 +6,7 @@ export default function Cart() {
     return (
         <div>
             <h2>Cart</h2>
+            <p>This is the cart.</p>
             <ul>
                 {cartContents.length > 0 ? cartContents.map((item) => (
                     <li key={item.key}>{item.title} | ${item.price} | <button onClick={() => incrementCount(-1, item.key)}>-</button>{item.count}<button onClick={() => incrementCount(1, item.key)}>+</button><button onClick={() => incrementCount(-item.count, item.key)}>Remove</button></li>

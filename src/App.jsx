@@ -1,11 +1,29 @@
 import { Outlet } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Nav from "./components/Nav";
 
 export default function App() {
-  const [cart, setCart] = useState([])
-  const [number, setNumber] = useState(0);
-  const [total, setTotal] = useState(0);
+  const [cart, setCart] = useState(() => {
+    const saved = localStorage.getItem("cart");
+    const initialValue = JSON.parse(saved);
+    return initialValue || [];
+  });
+  const [number, setNumber] = useState(() => {
+    const saved = localStorage.getItem("number");
+    const initialValue = JSON.parse(saved);
+    return initialValue || 0;
+  });
+  const [total, setTotal] = useState(() => {
+    const saved = localStorage.getItem("total");
+    const initialValue = JSON.parse(saved);
+    return initialValue || 0;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem("number", JSON.stringify(number));
+    localStorage.setItem("total", JSON.stringify(total));
+  }, [cart, number, total])
 
   function handleAddItem(name, cost, id, amount = 1) {
     let newCart = [...cart];
