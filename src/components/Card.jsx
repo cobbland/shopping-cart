@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useOutletContext } from "react-router-dom"
+import { useOutletContext } from "react-router-dom";
 
 export default function Card(props) {
     const [count, setCount] = useState(1);
@@ -32,6 +32,8 @@ export default function Card(props) {
         const num = parseInt(cleanedValue, 10);
         if (!num) {
             setCount(0)
+        } else if (num > 99) {
+            setCount(99);
         } else {
             setCount(num);
         }

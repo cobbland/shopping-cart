@@ -1,6 +1,7 @@
 import App from './App.jsx';
 import Home from "./components/Home";
 import Shop from './components/Shop.jsx';
+import Cart from './components/Cart.jsx';
 
 const route = [
   {
@@ -18,6 +19,10 @@ const route = [
       {
         path: "shop",
         element: <Shop />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
       },
     ]
   },
