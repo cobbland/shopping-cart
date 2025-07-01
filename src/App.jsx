@@ -4,18 +4,23 @@ import Nav from "./components/Nav";
 
 export default function App() {
   const [cart, setCart] = useState([])
-
-  let number = cart.length;
+  const [number, setNumber] = useState(0);
 
   function handleAddItem(name, cost, id, amount = 1) {
     let newCart = [...cart];
     let found = newCart.find(obj => obj.key === id);
+    let newNum = 0;
     if (found) {
       found.count += amount;
     } else {
       newCart = [...cart, {title: name, price: cost, key: id, count: amount}];
     }
-    number = newCart.length; //Make this so it adds all counts together
+    for (const obj of newCart) {
+      console.log(obj);
+      newNum += obj.count;
+      console.log(newNum)
+    }
+    setNumber(newNum);
     setCart(newCart);
   }
 
