@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import SmallCart from "./SmallCart";
 
-export default function Nav() {
+export default function Nav(props) {
     return (
         <div>
             <ul>
@@ -12,7 +12,7 @@ export default function Nav() {
                     <Link to="shop">Shop</Link>
                 </li>
             </ul>
-            <SmallCart />
+            <SmallCart number={props.number} />
         </div>
     )
 }

@@ -22,7 +22,8 @@ export default function Shop() {
                     title={item.title} 
                     price={item.price} 
                     description={item.description} 
-                    key={item.id} 
+                    key={item.id}
+                    propKey={item.id} 
                     image={item.image}
                 />
             ))}
