@@ -1,6 +1,20 @@
 import { Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Nav from "./components/Nav";
+import styled from "styled-components";
+
+const Header = styled.header`
+  background-color: #00000011;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 2rem;
+`;
+
+const Main = styled.main`
+  width: min(65ch, 100% - 4rem);
+  margin-inline: auto;
+`;
 
 export default function App() {
   const [cart, setCart] = useState(() => {
@@ -76,9 +90,13 @@ export default function App() {
 
   return (
     <>
-      <h1>Shopping Cart</h1>
-      <Nav number={number} />
-      <Outlet context={sharedData} />
+      <Header>
+        <h1>Shopping Cart</h1>
+        <Nav number={number} />
+      </Header>
+      <Main>
+        <Outlet context={sharedData} />
+      </Main>
     </>
   )
 }
