@@ -10,12 +10,17 @@ const AllCards = styled.div`
 `;
 
 export default function Shop() {
-    const [shopItems, setShopItems] = useState(null);
+    const [shopItems, setShopItems] = useState(() => {
+        const saved = sessionStorage.getItem("items");
+        const initialValue = JSON.parse(saved);
+        return initialValue || null;
+    });
 
     useEffect(() => {
         async function dataFetch() {
             const data = await (await fetch('https://fakestoreapi.com/products')).json();
             setShopItems(data);
+            sessionStorage.setItem("items", JSON.stringify(data))
         };
         dataFetch();
     }, []);
