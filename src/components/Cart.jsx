@@ -45,12 +45,9 @@ const Button = styled.button`
     background-color: white;
     padding: 0.3rem 0.5rem;
     transition: background-color 0.2s;
-    cursor: pointer;
     font-weight: bold;
 
-    &:hover,
-    &:active,
-    &:focus {
+    &:hover {
         background-color: #00000011;
     }
     
@@ -80,7 +77,6 @@ const Checkout = styled.button`
     border: none;
     padding: 0.7rem 1rem;
     transition: background-color 0.2s;
-    cursor: pointer;
     font-weight: bold;
     border-radius: 10px;
     background-color: #84B0C1;

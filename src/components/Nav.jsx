@@ -23,9 +23,7 @@ const StyledLink = styled(Link)`
         transition: color 0.2s;
     }
     
-    &:hover,
-    &:active,
-    &:focus {
+    &:hover {
         color: #84B0C1;
     }
 

@@ -10,7 +10,6 @@ const StyledCard = styled.div`
     flex-direction: column;
     border-radius: 1rem;
     box-shadow: 2px 2px 2px #00000022;
-    cursor: pointer;
     transition: box-shadow 0.2s;
 
     &:hover,
@@ -53,12 +52,9 @@ const StyledButton = styled.button`
     background-color: #00000022;
     padding: 0.7rem 1rem;
     transition: background-color 0.2s;
-    cursor: pointer;
     font-weight: bold;
 
-    &:hover,
-    &:active,
-    &:focus {
+    &:hover {
         background-color: #00000033;
     }
     
