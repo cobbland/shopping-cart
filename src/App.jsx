@@ -9,10 +9,11 @@ const Header = styled.header`
   justify-content: space-between;
   flex-wrap: wrap;
   padding: 0 2rem;
+  box-shadow: 0 4px 2px #00000022;
 `;
 
 const Main = styled.main`
-  width: min(65ch, 100% - 4rem);
+  padding: 0 2rem 2rem;
   margin-inline: auto;
 `;
 

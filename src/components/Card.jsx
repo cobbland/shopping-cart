@@ -1,5 +1,86 @@
 import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
+import styled from "styled-components";
+
+const StyledCard = styled.div`
+    width: 320px;
+    border: solid 2px #00000011;
+    padding: 1rem 2rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    box-shadow: 2px 2px 2px #00000022;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+
+    &:hover,
+    &:active,
+    &:focus {
+        box-shadow: 5px 5px 5px #00000011;
+    }
+`;
+
+const StyledImage = styled.img`
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    border: solid 2px #00000011;
+    border-radius: 0.5rem;
+`;
+
+const StyledTitle = styled.h3`
+    margin-bottom: auto;
+    padding-bottom: 1rem;
+    font-size: 1.2rem;
+    height: 100px;
+    overflow: hidden;
+`;
+
+const Price = styled.p`
+    margin-top: auto;
+`;
+
+const Buttons = styled.div`
+    align-self: center;
+`;
+
+const StyledButton = styled.button`
+    border: none;
+    background-color: #00000022;
+    padding: 0.4rem 0.7rem;
+    transition: background-color 0.2s;
+    cursor: pointer;
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: #00000033;
+    }
+    
+    &:nth-of-type(1) {
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+
+    &:nth-of-type(2) {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+    
+    &:nth-of-type(3) {
+        margin-left: 0.2rem;
+        border-radius: 10px;
+    }
+    
+`;
+
+const Input = styled.input`
+    width: 4rem;
+    padding: 0.4rem 0.7rem;
+    border-radius: 0;
+    border: none;
+    background-color: #00000011;
+`;
 
 export default function Card(props) {
     const [count, setCount] = useState(1);
@@ -42,15 +123,17 @@ export default function Card(props) {
     }
 
     return (
-        <div>
-            <h3>{props.title}</h3>
-            <img src={props.image} alt="" />
-            <p>{props.description}</p>
-            <p>${props.price}</p>
-            <button onClick={() => handleIncrementCount(-1)}>-</button>
-            <input type="number" value={count} min="0" onChange={(e) => handleSetCount(e.target.value)} />
-            <button onClick={() => handleIncrementCount(1)}>+</button>
-            <button onClick={() => onAddItem(props.title, props.price, props.propKey, count)} >Add to cart</button>
-        </div>
+        <StyledCard>
+            <StyledImage src={props.image} alt="" />
+            <StyledTitle>{props.title}</StyledTitle>
+            {/* <p>{props.description}</p> */}
+            <Price>${props.price}</Price>
+            <Buttons>
+                <StyledButton onClick={() => handleIncrementCount(-1)}>-</StyledButton>
+                <Input type="number" value={count} min="0" onChange={(e) => handleSetCount(e.target.value)} />
+                <StyledButton onClick={() => handleIncrementCount(1)}>+</StyledButton>
+                <StyledButton onClick={() => onAddItem(props.title, props.price, props.propKey, count)} >Add to cart</StyledButton>
+            </Buttons>
+        </StyledCard>
     )
 }
