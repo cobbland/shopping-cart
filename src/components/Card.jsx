@@ -23,17 +23,21 @@ const StyledCard = styled.div`
 const StyledImage = styled.img`
     height: 200px;
     width: 100%;
-    object-fit: cover;
-    border: solid 2px #00000011;
-    border-radius: 0.5rem;
+    object-fit: contain;
+`;
+
+const ImageContainer = styled.div`
+    padding: 0.6rem;
 `;
 
 const StyledTitle = styled.h3`
     margin-bottom: auto;
     padding-bottom: 1rem;
     font-size: 1.2rem;
-    height: 100px;
+    height: 2rem;
     overflow: hidden;
+    white-space: preserve nowrap;
+    text-overflow: ellipsis;
 `;
 
 const Price = styled.p`
@@ -47,9 +51,10 @@ const Buttons = styled.div`
 const StyledButton = styled.button`
     border: none;
     background-color: #00000022;
-    padding: 0.4rem 0.7rem;
+    padding: 0.7rem 1rem;
     transition: background-color 0.2s;
     cursor: pointer;
+    font-weight: bold;
 
     &:hover,
     &:active,
@@ -68,15 +73,21 @@ const StyledButton = styled.button`
     }
     
     &:nth-of-type(3) {
-        margin-left: 0.2rem;
+        margin-left: 0.7rem;
         border-radius: 10px;
+        background-color: #84B0C1;
+        color: white;
+    }
+
+    &:nth-of-type(3):hover {
+        background-color:rgb(111, 150, 165);
     }
     
 `;
 
 const Input = styled.input`
-    width: 4rem;
-    padding: 0.4rem 0.7rem;
+    width: 3rem;
+    padding: 0.7rem 1rem;
     border-radius: 0;
     border: none;
     background-color: #00000011;
@@ -124,13 +135,15 @@ export default function Card(props) {
 
     return (
         <StyledCard>
-            <StyledImage src={props.image} alt="" />
+            <ImageContainer>
+                <StyledImage src={props.image} alt="" />
+            </ImageContainer>
             <StyledTitle>{props.title}</StyledTitle>
             {/* <p>{props.description}</p> */}
             <Price>${props.price}</Price>
             <Buttons>
                 <StyledButton onClick={() => handleIncrementCount(-1)}>-</StyledButton>
-                <Input type="number" value={count} min="0" onChange={(e) => handleSetCount(e.target.value)} />
+                <Input type="text" value={count} min="0" onChange={(e) => handleSetCount(e.target.value)} />
                 <StyledButton onClick={() => handleIncrementCount(1)}>+</StyledButton>
                 <StyledButton onClick={() => onAddItem(props.title, props.price, props.propKey, count)} >Add to cart</StyledButton>
             </Buttons>
