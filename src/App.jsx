@@ -40,7 +40,7 @@ export default function App() {
     localStorage.setItem("total", JSON.stringify(total));
   }, [cart, number, total])
 
-  function handleAddItem(name, cost, id, amount = 1) {
+  function handleAddItem(picture, name, cost, id, amount = 1) {
     let newCart = [...cart];
     let found = newCart.find(obj => obj.key === id);
     let newNum = 0;
@@ -48,7 +48,7 @@ export default function App() {
     if (found) {
       found.count += amount;
     } else {
-      newCart = [...cart, {title: name, price: cost, key: id, count: amount}];
+      newCart = [...cart, {image: picture, title: name, price: cost, key: id, count: amount}];
     }
     for (const obj of newCart) {
       newNum += obj.count;

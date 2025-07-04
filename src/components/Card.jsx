@@ -145,7 +145,7 @@ export default function Card(props) {
                 <StyledButton onClick={() => handleIncrementCount(-1)}>-</StyledButton>
                 <Input type="text" value={count} min="0" onChange={(e) => handleSetCount(e.target.value)} />
                 <StyledButton onClick={() => handleIncrementCount(1)}>+</StyledButton>
-                <StyledButton onClick={() => onAddItem(props.title, props.price, props.propKey, count)} >Add to cart</StyledButton>
+                <StyledButton onClick={() => onAddItem(props.image, props.title, props.price, props.propKey, count)} >Add to cart</StyledButton>
             </Buttons>
         </StyledCard>
     )
