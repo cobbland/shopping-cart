@@ -14,7 +14,6 @@ const Header = styled.header`
 
 const Main = styled.main`
   padding: 0 2rem 2rem;
-  margin-inline: auto;
 `;
 
 export default function App() {

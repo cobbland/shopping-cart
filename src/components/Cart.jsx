@@ -1,6 +1,12 @@
 import { useOutletContext } from "react-router-dom";
 import styled from "styled-components";
 
+const FlexDiv = styled.div`
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+`;
+
 const CartItems = styled.div`
     display: flex;
     list-style: none;
@@ -23,6 +29,12 @@ const Item = styled.div`
     &:nth-last-of-type(1) {
         border-bottom: none;
     }
+
+    @media (width < 700px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 0.5rem;
+    }
 `;
 
 const Image = styled.img`
@@ -38,6 +50,10 @@ const Title = styled.div`
 const Buttons = styled.div`
     padding: 0.2rem;
     justify-self: end;
+
+    @media (width < 700px) {
+        justify-self: center;
+    }
 `;
 
 const Button = styled.button`
@@ -94,22 +110,26 @@ export default function Cart() {
         <div>
             <h2>Cart</h2>
             <p>This is the cart.</p>
-            <CartItems>
-                {cartContents.length > 0 ? cartContents.map((item) => (
-                    <Item key={item.key}>
-                        <Image src={item.image} alt="" /> 
-                        <Title>{item.title}</Title> ${item.price}
-                        <Buttons>
-                            <Button onClick={() => incrementCount(-1, item.key)}>-</Button>
-                            {item.count}
-                            <Button onClick={() => incrementCount(1, item.key)}>+</Button>
-                            <Button onClick={() => incrementCount(-item.count, item.key)}>Remove</Button>
-                        </Buttons>
-                    </Item>
-                )) : <p>Empty!</p>}
-            </CartItems>
-            <p>Subtotal: ${cartTotal}</p>
-            <Checkout>Checkout</Checkout>
+            <FlexDiv>
+                <CartItems>
+                    {cartContents.length > 0 ? cartContents.map((item) => (
+                        <Item key={item.key}>
+                            <Image src={item.image} alt="" />
+                            <Title>{item.title}</Title> ${item.price}
+                            <Buttons>
+                                <Button onClick={() => incrementCount(-1, item.key)}>-</Button>
+                                {item.count}
+                                <Button onClick={() => incrementCount(1, item.key)}>+</Button>
+                                <Button onClick={() => incrementCount(-item.count, item.key)}>Remove</Button>
+                            </Buttons>
+                        </Item>
+                    )) : <p>Empty!</p>}
+                </CartItems>
+                <div>
+                    <p>Subtotal: ${cartTotal}</p>
+                    <Checkout>Checkout</Checkout>
+                </div>
+            </FlexDiv>
         </div>
     )
 }
