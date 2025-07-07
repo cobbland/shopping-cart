@@ -31,5 +31,5 @@ Components (except for `main and App`) go in `/src/components/`. Styles live in 
 - [x] add functions to cart
 - [x] add cart to local storage
 - [ ] test
-- [ ] style
-- [ ] cache fetched data?
+- [x] style
+- [x] cache fetched data?
