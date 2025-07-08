@@ -30,6 +30,6 @@ Components (except for `main and App`) go in `/src/components/`. Styles live in 
 - [x] add add to cart
 - [x] add functions to cart
 - [x] add cart to local storage
-- [ ] test
+- [ ] test (see the [Introduction to React Testing](https://www.theodinproject.com/lessons/node-path-react-new-introduction-to-react-testing) lesson)
 - [x] style
 - [x] cache fetched data?
